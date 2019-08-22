@@ -12,19 +12,21 @@ def adicionaFinal(v, quantidade, num, final):
 		quantidade = quantidade + 1
 	return quantidade, final
 
-# def moveLista():
-#     counter = range(len(array)-1)
-#     new = counter
-#     for i in counter:
-#         new[i] = array[i-key]
-#     return new
-
-print shift(1, [5, 6, 7])
+def moveLista(i, vetor, posicao):
+    i = 0
+    counter = range(len(vetor))
+    new = counter
+    for i in counter:
+        new[i] = array[i-posicao]
+    return new
 
 
 # Função para adicionar em uma posição específica do vetor
-def adicionaPosicao(posicao, num, vetor):
-	vetor[posicao] = num
+def adicionaPosicao(posicao, num, vetor, i):
+    if posicao == [0]:
+	    vetor[posicao] = num
+    else:
+        moveLista(i, vetor, posicao)
 
 # Função principal do programa
 def main():
