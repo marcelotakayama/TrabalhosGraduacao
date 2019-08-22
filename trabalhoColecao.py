@@ -5,51 +5,71 @@ TIA: 31942407
 
 ################################################################################################
 
-# Função para adicionar um elemento no final do vetor 
-def adicionaFinal (vetor, valor):
-	vetor += [valor]
-	return vetor
+# Função para adicionar no final do vetor
+def adicionaFinal(v, quantidade, num, final):
+	if quantidade < 100:
+		v[final - quantidade] = num	
+		quantidade = quantidade + 1
+	return quantidade, final
+
+# def moveLista():
+#     counter = range(len(array)-1)
+#     new = counter
+#     for i in counter:
+#         new[i] = array[i-key]
+#     return new
+
+print shift(1, [5, 6, 7])
 
 
-# Define o tamanho do vetor
-tamanhoVetor = int(input('Digite o tamanho do vetor: '))
-vetor = [0] * tamanhoVetor
+# Função para adicionar em uma posição específica do vetor
+def adicionaPosicao(posicao, num, vetor):
+	vetor[posicao] = num
 
-
-while True: 
-	valor = int(input('Informe o valor a ser adicionado no final do vetor: '))
-
-	print(adicionaFinal(vetor, valor))
-
-	# Verifica se o vetor possui menos de 100 posições
-	if len(vetor) == 100:
-		break
-		
-print('O vetor não possui mais posições possíveis para serem adicionadas!')
-
-###############################################################################################
-
-#Define a função principal do programa
+# Função principal do programa
 def main():
-    vetor = [0]*100
-    quantidade = 0
-    escolha = -1
+	vetor = [0]*100
+	quantidade = 0
+	escolha = -1
+	final = 99
 
-    while escolha != 8:
-        print('Escolha a operação que você deseja realizar: ')
-        print('1- Adicionar um elemnto no final da posição.')
-        print('2- Adicionar um elemento em uma posição da coleção.')
-        print('3- Remover um elemento em uma posição na coleção.')
-        print('4- Remover a primeira ocorrência do elemento na coleção.')
-        print('5- Remover todas as ocorrências de um elemento na coleção.')
-        print('6- Verificar se dado um elemento está contido na coleção.')
-        print('7- Verificar se dado um valor existem dois elementos na coleção que somados é igual a um valor informado.')
-        print('8- Sair')
+	while escolha != 8:
+		print('1- Adicionar um número no final do vetor')
+		print('2- Adicionar um número em uma posição do vetor')
+		print('3- Opção 3')
+		print('4- Opção 4')
+		print('5- Opção 5')
+		print('6- Opção 6')
+		print('7- Opção 7')
+		print('8- Sair do programa')
 
-        if escolha == 1:
-            adicionaFinal(vetor, valor, tamanhoVetor)
+		escolha = int(input('Informe a opção que deseja realizar: '))
 
+		if escolha == 1:
+			num = int(input('Digite o número que deseja inserir: '))
+			quantidade, final = adicionaFinal(vetor, quantidade, num, final)
+			print(vetor)
+
+		elif escolha == 2:
+			posicao = int(input('Informe a posição em que deseja inserir um número: '))
+			num = int(input('Digite o número que deseja inserir: '))
+			adicionaPosicao(posicao, num, vetor)
+			print(vetor)
+
+		
+		
+		# elif escolha == 3:
+
+		# elif escolha == 4:
+
+		# elif escolha == 5:
+
+		# elif escolha == 6:
+
+		# elif escolha == 7:
+
+		# elif escolha == 8:
+		# 	break
+		
 main()
-
-
 
