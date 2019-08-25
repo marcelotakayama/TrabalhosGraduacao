@@ -6,40 +6,43 @@ TIA: 31942407
 ################################################################################################
 
 # Função para adicionar no final do vetor
-def adicionaFinal(v, quantidade, num, final):
-	if quantidade < 100:
-		v[final - quantidade] = num	
-		quantidade = quantidade + 1
-	return quantidade, final
+def adicionaFinal(v, qtd, num):
+	if qtd < 100:
+		v[qtd] = num	
+		qtd = qtd + 1
+	return qtd
 
 #################################################################################################
 # Função para adicionar em uma posição específica do vetor
 def adicionaPosicao(posicao, num, vetor):
-	    vetor[posicao] = num    
+	vetor[posicao] = num    
 
 ##################################################################################################
-def moveVetor(lists, num, vetor): 
-    output_list = [vetor] 
-      
-    for item in range(len(lists) - num, len(lists)): 
-        output_list.append(lists[item]) 
-        
-    for item in range(0, len(lists) - num):  
-        output_list.append(lists[item]) 
-          
-    return output_list 
-   
-rotate_num = 1
-list_1 = [1, 2, 3, 4, 5, 6] 
+def moveDireita(novoVetor, vetor): 
+	n = 1
+	vetor = vetor 
+	novoVetor = (vetor[len(vetor) - n:len(vetor)] + vetor[0:len(vetor) - n]) 
+	print(novoVetor) 
  
 #######################################################################################################
 
+#Função para printar o vetor de forma mais bonita
+
+def printVetor(vetor, qtd):
+	i = 0
+	print('vetor: [', end = ' ')
+	while i < qtd:
+		print(vetor[i], end = ' ')
+		i += 1
+	print(']', end = ' ')
+	print()
+
+######################################################################################################
 # Função principal do programa
 def main():
 	vetor = [0]*100
-	quantidade = 0
+	qtd = 0
 	escolha = -1
-	final = 99
 
 	while escolha != 8:
 		print('1- Adicionar um número no final do vetor')
@@ -55,16 +58,13 @@ def main():
 
 		if escolha == 1:
 			num = int(input('Digite o número que deseja inserir: '))
-			quantidade, final = adicionaFinal(vetor, quantidade, num, final)
-			print(vetor)
+			qtd = adicionaFinal(vetor, qtd, num)
 
 		elif escolha == 2:
 			posicao = int(input('Informe a posição em que deseja inserir um número: '))
 			num = int(input('Digite o número que deseja inserir: '))
 			adicionaPosicao(posicao, num, vetor)
-			print(vetor)
 
-		
 		
 		# elif escolha == 3:
 
@@ -79,5 +79,7 @@ def main():
 		# elif escolha == 8:
 		# 	break
 		
-main()
+		if escolha <= 7 and escolha >= 1:
+			printVetor(vetor, qtd)
 
+main()
