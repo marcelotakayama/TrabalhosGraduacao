@@ -14,15 +14,19 @@ def adicionaFinal(v, qtd, num):
 
 #################################################################################################
 # Função para adicionar em uma posição específica do vetor
-def adicionaPosicao(posicao, num, vetor):
-	vetor[posicao] = num    
+def adicionaPosicao(posicao, num, vetor, novoVetor):
+	if posicao == [0]:
+		vetor[posicao] = num
+	else:
+		moveDireita(vetor, vetor)  
+		vetor[posicao] = num  
 
 ##################################################################################################
 def moveDireita(novoVetor, vetor): 
 	n = 1
-	vetor = vetor 
+	vetor = vetor
 	novoVetor = (vetor[len(vetor) - n:len(vetor)] + vetor[0:len(vetor) - n]) 
-	print(novoVetor) 
+	return novoVetor
  
 #######################################################################################################
 
