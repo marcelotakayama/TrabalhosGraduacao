@@ -25,7 +25,7 @@ def adicionaPosicao(pos, num, vetor, qtd):
 	if pos <= qtd and qtd < 100:
 		posx = len(vetor)-1
 		if pos != 0:
-			for i in range (len(vetor)-1):
+			for posx in range (len(vetor)-1):
 				vetor[posx] = vetor[posx -1]			
 				posx -= 1					
 			vetor[pos] = num
